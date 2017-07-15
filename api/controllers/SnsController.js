@@ -34,7 +34,7 @@ module.exports = {
     sns.publish(params, function (err, data) {
       if (err) {
 				console.log(err, err.stack);
-        return res.status(err.code || 500).json({'error': err.message});
+        return res.serverError({'error': err.message});
 			} else {
 				return res.json(data);
 			}
